@@ -1,0 +1,177 @@
+--------------------------------------------------------------------------------
+ModelTest-NG v0.2.0
+
+Input data:
+  MSA:        MSA.MAFFT.Without_low_SP_Col.With_Names
+  Tree:       Maximum parsimony
+    file:           -
+  #taxa:            571
+  #sites:           2757
+  #patterns:        372
+  Max. thread mem:  519 MB
+
+Output:
+  Log:           /home/pratush/dev/paper2_on_NP/Phylogenytree_mammals-birds/test/data/modeltest_cds_output/modeltest_results.log
+  Starting tree: /home/pratush/dev/paper2_on_NP/Phylogenytree_mammals-birds/test/data/modeltest_cds_output/modeltest_results.tree
+  Results:       /home/pratush/dev/paper2_on_NP/Phylogenytree_mammals-birds/test/data/modeltest_cds_output/modeltest_results.out
+
+Selection options:
+  # protein matrices: 19
+  # protein models:   57
+  include model parameters:
+    Uniform:         false
+    p-inv (+I):      true
+    gamma (+G):      true
+    both (+I+G):     true
+    free rates (+R): false
+    fixed freqs:     true
+    estimated freqs: false
+    #categories:     4
+  gamma rates mode:   mean
+  asc bias:           none
+  epsilon (opt):      0.01
+  epsilon (par):      0.05
+  keep branches:      false
+
+Additional options:
+  verbosity:        very low
+  threads:          4/8
+  RNG seed:         12345
+  subtree repeats:  enabled
+--------------------------------------------------------------------------------
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  PMB+I+G4           2    -21720.9007     52480.6875         0.0000    0.8983
+       2  PMB+G4             1    -21727.0399     52485.0440         4.3565    0.1017
+       3  BLOSUM62+I+G4      2    -21829.6064     52698.0990       217.4114    0.0000
+       4  BLOSUM62+G4        1    -21836.9897     52704.9436       224.2561    0.0000
+       5  DCMUT+I+G4         2    -21896.4973     52831.8807       351.1932    0.0000
+       6  DCMUT+G4           1    -21903.0201     52837.0044       356.3169    0.0000
+       7  DAYHOFF+I+G4       2    -21902.6635     52844.2132       363.5256    0.0000
+       8  DAYHOFF+G4         1    -21909.0965     52849.1572       368.4697    0.0000
+       9  WAG+I+G4           2    -21982.4575     53003.8010       523.1135    0.0000
+      10  WAG+G4             1    -21987.6134     53006.1911       525.5035    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              PMB+I+G4
+lnL:                -21720.9007
+Frequencies:        0.0760 0.0540 0.0380 0.0450 0.0280 0.0340 0.0530 0.0780 0.0300 0.0600 0.0960 0.0520 0.0220 0.0450 0.0420 0.0680 0.0560 0.0160 0.0360 0.0710
+Inv. sites prop:    0.1048
+Gamma shape:        0.7344
+Score:              52480.6875
+Weight:             0.8983
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              0.1017
+Gamma-Inv:          0.8983
+Frequencies:        -
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.6241
+Alpha-P.Inv:        0.7344
+P.Inv-Alpha:        0.1048
+Frequencies:        -
+
+Commands:
+  > phyml  -i MSA.MAFFT.Without_low_SP_Col.With_Names -d aa -m PMB -f m -v e -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s MSA.MAFFT.Without_low_SP_Col.With_Names -m PROTGAMMAIPMB -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa MSA.MAFFT.Without_low_SP_Col.With_Names --model PMB+I+G4
+  > paup -s MSA.MAFFT.Without_low_SP_Col.With_Names
+  > iqtree -s MSA.MAFFT.Without_low_SP_Col.With_Names -m PMB+I+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  PMB+I+G4           2    -21720.9007     45723.8015         0.0000    0.9942
+       2  PMB+G4             1    -21727.0399     45734.0799        10.2784    0.0058
+       3  BLOSUM62+I+G4      2    -21829.6064     45941.2129       217.4114    0.0000
+       4  BLOSUM62+G4        1    -21836.9897     45953.9794       230.1780    0.0000
+       5  DCMUT+I+G4         2    -21896.4973     46074.9946       351.1932    0.0000
+       6  DCMUT+G4           1    -21903.0201     46086.0402       362.2388    0.0000
+       7  DAYHOFF+I+G4       2    -21902.6635     46087.3271       363.5256    0.0000
+       8  DAYHOFF+G4         1    -21909.0965     46098.1930       374.3916    0.0000
+       9  WAG+I+G4           2    -21982.4575     46246.9150       523.1135    0.0000
+      10  WAG+G4             1    -21987.6134     46255.2269       531.4254    0.0000
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              PMB+I+G4
+lnL:                -21720.9007
+Frequencies:        0.0760 0.0540 0.0380 0.0450 0.0280 0.0340 0.0530 0.0780 0.0300 0.0600 0.0960 0.0520 0.0220 0.0450 0.0420 0.0680 0.0560 0.0160 0.0360 0.0710
+Inv. sites prop:    0.1048
+Gamma shape:        0.7344
+Score:              45723.8015
+Weight:             0.9942
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              0.0058
+Gamma-Inv:          0.9942
+Frequencies:        -
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.6241
+Alpha-P.Inv:        0.7344
+P.Inv-Alpha:        0.1048
+Frequencies:        -
+
+Commands:
+  > phyml  -i MSA.MAFFT.Without_low_SP_Col.With_Names -d aa -m PMB -f m -v e -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s MSA.MAFFT.Without_low_SP_Col.With_Names -m PROTGAMMAIPMB -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa MSA.MAFFT.Without_low_SP_Col.With_Names --model PMB+I+G4
+  > paup -s MSA.MAFFT.Without_low_SP_Col.With_Names
+  > iqtree -s MSA.MAFFT.Without_low_SP_Col.With_Names -m PMB+I+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  PMB+I+G4           2    -21720.9007     47336.8015         0.0000    0.9585
+       2  PMB+G4             1    -21727.0399     47343.0799         6.2784    0.0415
+       3  BLOSUM62+I+G4      2    -21829.6064     47554.2129       217.4114    0.0000
+       4  BLOSUM62+G4        1    -21836.9897     47562.9794       226.1780    0.0000
+       5  DCMUT+I+G4         2    -21896.4973     47687.9946       351.1932    0.0000
+       6  DCMUT+G4           1    -21903.0201     47695.0402       358.2388    0.0000
+       7  DAYHOFF+I+G4       2    -21902.6635     47700.3271       363.5256    0.0000
+       8  DAYHOFF+G4         1    -21909.0965     47707.1930       370.3916    0.0000
+       9  WAG+I+G4           2    -21982.4575     47859.9150       523.1135    0.0000
+      10  WAG+G4             1    -21987.6134     47864.2269       527.4254    0.0000
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              PMB+I+G4
+lnL:                -21720.9007
+Frequencies:        0.0760 0.0540 0.0380 0.0450 0.0280 0.0340 0.0530 0.0780 0.0300 0.0600 0.0960 0.0520 0.0220 0.0450 0.0420 0.0680 0.0560 0.0160 0.0360 0.0710
+Inv. sites prop:    0.1048
+Gamma shape:        0.7344
+Score:              47336.8015
+Weight:             0.9585
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              0.0415
+Gamma-Inv:          0.9585
+Frequencies:        -
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.6241
+Alpha-P.Inv:        0.7344
+P.Inv-Alpha:        0.1048
+Frequencies:        -
+
+Commands:
+  > phyml  -i MSA.MAFFT.Without_low_SP_Col.With_Names -d aa -m PMB -f m -v e -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s MSA.MAFFT.Without_low_SP_Col.With_Names -m PROTGAMMAIPMB -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa MSA.MAFFT.Without_low_SP_Col.With_Names --model PMB+I+G4
+  > paup -s MSA.MAFFT.Without_low_SP_Col.With_Names
+  > iqtree -s MSA.MAFFT.Without_low_SP_Col.With_Names -m PMB+I+G4
+Done

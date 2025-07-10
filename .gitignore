@@ -1,0 +1,16 @@
+# .gitignore
+# Ignore large outputs, temporary/intermediate files
+
+# GUIDANCE outputs
+data/guidance_outputs/
+
+# Ignore temporary files
+*.scr
+*.html
+*.log
+*.tmp
+*.swp
+
+# Ignore Git-related junk
+*.pack
+*.idx
